@@ -5,7 +5,7 @@
 
 <img src="https://i.imgur.com/veTl4OH.png" width="400">
 
-<img src="https://youtu.be/ZpJFEm1of-s" width="250">
+<a href="https://youtu.be/ZpJFEm1of-s"><img src="https://i.imgur.com/Wb82pDU.png" width="600">
 
 * 책 구매
   * http://www.yes24.com/Product/Goods/71534451
