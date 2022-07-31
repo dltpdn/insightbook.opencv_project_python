@@ -7,9 +7,10 @@ imgray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 ret, th = cv2.threshold(imgray, 127,255,cv2.THRESH_BINARY_INV)
 
 # 컨튜어 찾기
-im, contours, hr = cv2.findContours(th, cv2.RETR_EXTERNAL, \
-                                        cv2.CHAIN_APPROX_SIMPLE)
+contours, hr = cv2.findContours(th, cv2.RETR_EXTERNAL, \
+                                        cv2.CHAIN_APPROX_SIMPLE)[-2:]
 contr = contours[0]
+print(type(contr), contr.shape, contr.dtype)
 
 # 감싸는 사각형 표시(검정색)
 x,y,w,h = cv2.boundingRect(contr)
@@ -26,7 +27,7 @@ cv2.drawContours(img, [box], -1, (0,255,0), 3)
 cv2.circle(img, (int(x), int(y)), int(radius), (255,0,0), 2)
 
 # 최소한의 삼각형 표시(분홍색)
-ret, tri = cv2.minEnclosingTriangle(contr)
+ret, tri = cv2.minEnclosingTriangle(np.float32(contr))
 cv2.polylines(img, [np.int32(tri)], True, (255,0,255), 2)
 
 # 최소한의 타원 표시(노랑색)
@@ -34,9 +35,9 @@ ellipse = cv2.fitEllipse(contr)
 cv2.ellipse(img, ellipse, (0,255,255), 3)
 
 # 중심점 통과하는 직선 표시(빨강색)
-[vx,vy,x,y] = cv2.fitLine(contr, cv2.DIST_L2,0,0.01,0.01)
+vx,vy,x,y = cv2.fitLine(contr, cv2.DIST_L2,0,0.01,0.01)
 cols,rows = img.shape[:2]
-cv2.line(img,(0, 0-x*(vy/vx) + y), (cols-1, (cols-x)*(vy/vx) + y), \
+cv2.line(img, (0, int(0-x*(vy/vx) + y)), (cols-1, int((cols-x)*(vy/vx) + y)), \
                                                         (0,0,255),2)
 
 # 결과 출력

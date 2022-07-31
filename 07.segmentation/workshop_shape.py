@@ -8,8 +8,8 @@ imgray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 ret, th = cv2.threshold(imgray, 127, 255, cv2.THRESH_BINARY_INV)
 
 # 컨투어 찾기
-_, contours, _ = cv2.findContours(th, cv2.RETR_EXTERNAL, \
-                                        cv2.CHAIN_APPROX_SIMPLE)
+contours, _ = cv2.findContours(th, cv2.RETR_EXTERNAL, \
+                                        cv2.CHAIN_APPROX_SIMPLE)[-2:]
 
 for contour in contours:
     # 각 컨투어에 근사 컨투어로 단순화 

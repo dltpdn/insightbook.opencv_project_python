@@ -8,7 +8,7 @@ min_accuracy = 85
 
 # LBP 얼굴 인식기 및 케스케이드 얼굴 검출기 생성 및 훈련 모델 읽기 ---②
 face_classifier = cv2.CascadeClassifier(\
-                '../data/haarcascade_frontalface_default.xml')
+                './data/haarcascade_frontalface_default.xml')
 model = cv2.face.LBPHFaceRecognizer_create()
 model.read(os.path.join(base_dir, 'all_face.xml'))
 

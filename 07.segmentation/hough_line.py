@@ -14,7 +14,7 @@ for line in lines: # 검출된 모든 선 순회
     tx, ty = np.cos(theta), np.sin(theta) # x, y축에 대한 삼각비
     x0, y0 = tx*r, ty*r  #x, y 기준(절편) 좌표
     # 기준 좌표에 빨강색 점 그리기
-    cv2.circle(img2, (abs(x0), abs(y0)), 3, (0,0,255), -1)
+    cv2.circle(img2, (int(abs(x0)), int(abs(y0))), 3, (0,0,255), -1)
     # 직선 방정식으로 그리기 위한 시작점, 끝점 계산
     x1, y1 = int(x0 + w*(-ty)), int(y0 + h * tx)
     x2, y2 = int(x0 - w*(-ty)), int(y0 - h * tx)

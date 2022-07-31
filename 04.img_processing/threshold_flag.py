@@ -12,6 +12,7 @@ _, t_2zrinv = cv2.threshold(img, 127, 255, cv2.THRESH_TOZERO_INV)
 
 imgs = {'origin':img, 'BINARY':t_bin, 'BINARY_INV':t_bininv, \
         'TRUNC':t_truc, 'TOZERO':t_2zr, 'TOZERO_INV':t_2zrinv}
+        
 for i, (key, value) in enumerate(imgs.items()):
     plt.subplot(2,3, i+1)
     plt.title(key)

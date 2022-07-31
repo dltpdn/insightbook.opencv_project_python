@@ -2,8 +2,8 @@ import cv2
 import numpy as np
 
 # 얼굴과 눈동자 검출기 생성
-face_cascade = cv2.CascadeClassifier('../data/haarcascade_frontalface_default.xml')
-eye_cascade = cv2.CascadeClassifier('../data/haarcascade_eye.xml')
+face_cascade = cv2.CascadeClassifier('./data/haarcascade_frontalface_default.xml')
+eye_cascade = cv2.CascadeClassifier('./data/haarcascade_eye.xml')
 
 # 렌즈 왜곡 효과 함수
 def distortedMap(rows, cols, type=0):

@@ -1,8 +1,8 @@
 import cv2
 
 # 얼굴과  검출을 위한 케스케이드 분류기 생성 
-face_cascade = cv2.CascadeClassifier('../data/haarcascade_frontalface_default.xml')
-eye_cascade = cv2.CascadeClassifier('../data/haarcascade_eye.xml')
+face_cascade = cv2.CascadeClassifier('./data/haarcascade_frontalface_default.xml')
+eye_cascade = cv2.CascadeClassifier('./data/haarcascade_eye.xml')
 
 # 카메라 캡쳐 활성화
 cap = cv2.VideoCapture(0)

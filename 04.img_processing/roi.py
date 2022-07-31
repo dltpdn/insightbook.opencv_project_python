@@ -1,7 +1,7 @@
 import cv2
 import numpy as np
 
-img = cv2.imread('./img/sunset.jpg')
+img = cv2.imread('../img/sunset.jpg')
 
 x=320; y=150; w=50; h=50        # roi 좌표
 roi = img[y:y+h, x:x+w]         # roi 지정        ---①

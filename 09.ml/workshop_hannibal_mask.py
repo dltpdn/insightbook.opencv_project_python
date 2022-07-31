@@ -5,7 +5,7 @@ import numpy as np
 face_mask = cv2.imread('../img/mask_hannibal.png')
 h_mask, w_mask = face_mask.shape[:2]
 # 얼굴 검출기 생성
-face_cascade = cv2.CascadeClassifier('../data/haarcascade_frontalface_alt.xml')
+face_cascade = cv2.CascadeClassifier('./data/haarcascade_frontalface_alt.xml')
 
 cap = cv2.VideoCapture(0)
 while True:

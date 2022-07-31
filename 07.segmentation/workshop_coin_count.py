@@ -122,8 +122,8 @@ for i, label in enumerate(coin_label):
     # 동전 영역만 마스크로 추출
     coins = cv2.bitwise_and(img, img, mask=mask)
     # 동전 하나만 있는 곳에서 최외곽 컨투어 추출
-    _, contour, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL,\
-                                         cv2.CHAIN_APPROX_NONE)
+    contour, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL,\
+                                         cv2.CHAIN_APPROX_NONE)[-2:]
     # 동전을 감싸는 사각형 좌표
     x,y,w,h = cv2.boundingRect(contour[0])
     # 동전 영역만 추출해서 출력

@@ -17,8 +17,8 @@ gray = cv2.cvtColor(image,cv2.COLOR_BGR2GRAY)
 gray = cv2.GaussianBlur(gray, (5, 5), 0)
 _, gray = cv2.threshold(gray, 127, 255, cv2.THRESH_BINARY_INV)
 # 최외곽 컨투어만 찾기 ---⑤
-img, contours, _ = cv2.findContours(gray, cv2.RETR_EXTERNAL, \
-                                        cv2.CHAIN_APPROX_SIMPLE)
+contours, _ = cv2.findContours(gray, cv2.RETR_EXTERNAL, \
+                                        cv2.CHAIN_APPROX_SIMPLE)[-2:]
 # 모든 컨투어 순회 ---⑥
 for c in contours:
     # 컨투어를 감싸는 외접 사각형으로 숫자 영역 좌표 구하기 ---⑦

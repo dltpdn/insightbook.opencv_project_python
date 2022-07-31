@@ -16,8 +16,8 @@ cv2.imshow(win_name, edged)
 cv2.waitKey(0)
 
 # 컨투어 찾기
-(_, cnts, _) = cv2.findContours(edged.copy(), cv2.RETR_EXTERNAL, \
-                                                cv2.CHAIN_APPROX_SIMPLE)
+cnts, _ = cv2.findContours(edged.copy(), cv2.RETR_EXTERNAL, \
+                                                cv2.CHAIN_APPROX_SIMPLE)[-2:]
 # 모든 컨투어 그리기
 cv2.drawContours(draw, cnts, -1, (0,255,0))
 cv2.imshow(win_name, draw)

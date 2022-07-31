@@ -9,8 +9,8 @@ imgray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 ret, th = cv2.threshold(imgray, 127, 255, cv2.THRESH_BINARY)
 
 # 컨투어 찾기 ---①
-temp, contours, hierachy = cv2.findContours(th, cv2.RETR_EXTERNAL, \
-                                     cv2.CHAIN_APPROX_SIMPLE)
+contours, hierachy = cv2.findContours(th, cv2.RETR_EXTERNAL, \
+                                     cv2.CHAIN_APPROX_SIMPLE)[-2:]
 contour = contours[0]
 # 전체 둘레의 0.05로 오차 범위 지정 ---②
 epsilon = 0.05 * cv2.arcLength(contour, True)

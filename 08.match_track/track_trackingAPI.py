@@ -1,14 +1,16 @@
 import cv2
 
 # 트랙커 객체 생성자 함수 리스트 ---①
-trackers = [cv2.TrackerBoosting_create,
+trackers = [
             cv2.TrackerMIL_create,
             cv2.TrackerKCF_create,
-            cv2.TrackerTLD_create,
-            cv2.TrackerMedianFlow_create,
+            #cv2.TrackerTLD_create,
+            #cv2.TrackerMedianFlow_create,
             cv2.TrackerGOTURN_create, #버그로 오류 발생
             cv2.TrackerCSRT_create,
-            cv2.TrackerMOSSE_create]
+            cv2.TrackerDaSiamRPN_create,
+            #cv2.TrackerMOSSE_create
+            ]
 trackerIdx = 0  # 트랙커 생성자 함수 선택 인덱스
 tracker = None
 isFirst = True

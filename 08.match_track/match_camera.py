@@ -36,10 +36,13 @@ while cap.isOpened():
         good_matches = [m[0] for m in matches \
                 if len(m) == 2 and m[0].distance < m[1].distance * ratio]
         print('good matches:%d/%d' %(len(good_matches),len(matches)))
+        
         # 모든 매칭점 그리지 못하게 마스크를 0으로 채움
         matchesMask = np.zeros(len(good_matches)).tolist()
+
         # 좋은 매칭점 최소 갯수 이상 인 경우
         if len(good_matches) > MIN_MATCH: 
+            
             # 좋은 매칭점으로 원본과 대상 영상의 좌표 구하기 ---③
             src_pts = np.float32([ kp1[m.queryIdx].pt for m in good_matches ])
             dst_pts = np.float32([ kp2[m.trainIdx].pt for m in good_matches ])
@@ -55,7 +58,7 @@ while cap.isOpened():
                 pts = np.float32([ [[0,0]],[[0,h-1]],[[w-1,h-1]],[[w-1,0]] ])
                 dst = cv2.perspectiveTransform(pts,mtrx)
                 img2 = cv2.polylines(img2,[np.int32(dst)],True,255,3, cv2.LINE_AA)
-        # 마스크로 매칭점 그리기 ---⑨
+                # 마스크로 매칭점 그리기 ---⑨
         res = cv2.drawMatches(img1, kp1, img2, kp2, good_matches, None, \
                             matchesMask=matchesMask,
                             flags=cv2.DRAW_MATCHES_FLAGS_NOT_DRAW_SINGLE_POINTS)

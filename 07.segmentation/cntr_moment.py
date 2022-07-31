@@ -7,8 +7,8 @@ imgray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 # 바이너리 스케일 변환
 ret, th = cv2.threshold(imgray, 127, 255, cv2.THRESH_BINARY_INV)
 # 컨투어 찾기
-img2, contours, hierachy = cv2.findContours(th, cv2.RETR_EXTERNAL, \
-                                            cv2.CHAIN_APPROX_SIMPLE)
+contours, hierachy = cv2.findContours(th, cv2.RETR_EXTERNAL, \
+                                            cv2.CHAIN_APPROX_SIMPLE)[-2:]
 
 # 각 도형의 컨투어에 대한 루프
 for c in contours:

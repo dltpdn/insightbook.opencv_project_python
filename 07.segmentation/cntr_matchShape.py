@@ -11,10 +11,10 @@ shapesGray = cv2.cvtColor(shapes, cv2.COLOR_BGR2GRAY)
 ret, targetTh = cv2.threshold(targetGray, 127, 255, cv2.THRESH_BINARY_INV)
 ret, shapesTh = cv2.threshold(shapesGray, 127, 255, cv2.THRESH_BINARY_INV)
 # 컨투어 찾기
-_, cntrs_target, _ = cv2.findContours(targetTh, cv2.RETR_EXTERNAL, \
-                                            cv2.CHAIN_APPROX_SIMPLE)
-_, cntrs_shapes, _ = cv2.findContours(shapesTh, cv2.RETR_EXTERNAL, \
-                                            cv2.CHAIN_APPROX_SIMPLE)
+cntrs_target, _ = cv2.findContours(targetTh, cv2.RETR_EXTERNAL, \
+                                            cv2.CHAIN_APPROX_SIMPLE)[-2:]
+cntrs_shapes, _ = cv2.findContours(shapesTh, cv2.RETR_EXTERNAL, \
+                                            cv2.CHAIN_APPROX_SIMPLE)[-2:]
 
 # 각 도형과 매칭을 위한 반복문
 matchs = [] # 컨투어와 매칭 점수를 보관할 리스트

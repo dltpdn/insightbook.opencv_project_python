@@ -32,8 +32,8 @@ while cap.isOpened():
         prevMv = prevPt[status==1]
         nextMv = nextPt[status==1]
         for i,(p, n) in enumerate(zip(prevMv, nextMv)):
-            px,py = p.ravel()
-            nx,ny = n.ravel()
+            px,py = p.ravel().astype(np.int32)
+            nx,ny = n.ravel().astype(np.int32)
             # 이전 코너와 새로운 코너에 선그리기 ---④
             cv2.line(lines, (px, py), (nx,ny), color[i].tolist(), 2)
             # 새로운 코너에 점 그리기
